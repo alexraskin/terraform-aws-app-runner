@@ -1,0 +1,3 @@
+terraform 1.0.11
+tflint 0.33.0
+tfsec 0.58.14
