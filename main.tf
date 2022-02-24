@@ -16,6 +16,18 @@ resource "aws_apprunner_service" "runner_service" {
       }
     }
   }
+  instance_configuration {
+    cpu    = var.service_cpu
+    memory = var.service_memory
+  }
+  health_check_configuration {
+    healthy_threshold   = var.service_healthy_threshold
+    interval            = var.service_interval
+    path                = var.service_health_check_path
+    protocol            = var.protocol
+    timeout             = var.timeout
+    unhealthy_threshold = var.unhealthy_threshold
+  }
   tags = var.tags
 }
 

@@ -56,3 +56,52 @@ variable "ecr_repository_url" {
   type        = string
   description = "The ECR repository URL to use for the service"
 }
+
+variable "service_cpu" {
+  type        = number
+  description = "The number of cpu's to allocate to the service"
+  default     = 1024 # valid values: 1024|2048|(1|2) vCPU
+}
+
+variable "service_memory" {
+  type        = number
+  description = "The amount of memory to allocate to the service"
+  default     = 2048 # valid values: 2048|3072|4096|(2|3|4) GB
+}
+
+variable "service_healthy_threshold" {
+  type        = number
+  default     = 5
+  description = "The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 5. Minimum value of 1. Maximum value of 20."
+}
+
+variable "service_interval" {
+  type        = number
+  default     = 5
+  description = "The time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20."
+}
+
+variable "service_health_check_path" {
+  type        = string
+  default     = "/"
+  description = " The URL to send requests to for health checks. Defaults to /. Minimum length of 0. Maximum length of 51200."
+}
+
+variable "protocol" {
+  type        = string
+  default     = "TCP"
+  description = "The IP protocol that App Runner uses to perform health checks for your service. Valid values: TCP, HTTP. Defaults to TCP. If you set protocol to HTTP, App Runner sends health check requests to the HTTP path specified by path."
+}
+
+variable "timeout" {
+  type        = number
+  default     = 2
+  description = " The time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of 1. Maximum value of 20."
+}
+
+variable "unhealthy_threshold" {
+  type        = number
+  default     = 5
+  description = "The number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of 1. Maximum value of 20."
+
+}
