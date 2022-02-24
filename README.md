@@ -3,6 +3,7 @@
 This module will create an app runner service
 
 - An ECR Repo is required for this module to work
+- Make sure you have the most up to date git ref
 
 ```hlc
 module "app_runner_service" {
@@ -14,5 +15,6 @@ module "app_runner_service" {
   service_port               = var.service_port
   auto_scaling_max_size      = var.auto_scaling_max_size
   environment_variables      = var.environment_variables
+  service_cpu                = var.service_cpu
 }
 ```
