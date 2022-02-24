@@ -27,7 +27,7 @@ jobs:
      
       - name: tfsec
         run: |
-          tfsec --tfvars-file ./terraform.tfvars
+          tfsec
 
       - name: Terraform validation
         run: |
