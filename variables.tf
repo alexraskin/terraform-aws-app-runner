@@ -1,3 +1,9 @@
+variable "aws_region" {
+  type        = string
+  description = "The AWS region that we are working in"
+  default     = "us-east-1"
+}
+
 variable "docker_image_tag" {
   type        = string
   description = "Which ECR Image tag to use"
